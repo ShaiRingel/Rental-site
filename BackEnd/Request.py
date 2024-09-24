@@ -7,10 +7,9 @@ connection_string = (
     r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};"
     r"DBQ=C:\Users\shair\OneDrive\שולחן העבודה\Program\Rental-site\RentalServicesproject.accdb;"
 )
-tableName = "Request"
 
 class Request(_base):
-    __tablename__ = tableName
+    __tablename__ = "Request"
 
     id = sa.Column("ID", sa.Integer, primary_key=True)
     renterID = sa.Column("RenterID", sa.Integer)
