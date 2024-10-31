@@ -99,3 +99,12 @@ def getAllUsers():
     session = Session()
 
     return session.query(User).all()
+
+
+def getUserByID(id):
+    engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    return session.query(User).filter(User.id == id).first()

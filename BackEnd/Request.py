@@ -87,3 +87,11 @@ def getAllRequest():
     session = Session()
 
     return session.query(Request).all()
+
+def getRequestByID(id):
+    engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    return session.query(Request).filter(Request.id == id).first()

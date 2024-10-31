@@ -1,4 +1,4 @@
-from User import User
+from user import User
 import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -31,7 +31,7 @@ class Renter(User):
         self.productID = productID
 
 
-def createNewRenter(renterID, desired_price, request_status):
+def createNewRenter(username, password, group_number, renterID, desired_price):
     engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
 
     Session = sessionmaker(bind=engine)
@@ -42,7 +42,7 @@ def createNewRenter(renterID, desired_price, request_status):
     except:
         id = 1
     
-    transaction = Renter(id, renterID, desired_price, request_status)
+    transaction = Renter(id, username, password, group_number, renterID, desired_price)
     session.add(transaction)
     session.commit()
     print(f"Renter with ID {id} has been created.")
@@ -96,3 +96,11 @@ def getAllRenter():
     session = Session()
 
     return session.query(Renter).all()
+
+def getRenterByID(id):
+    engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    return session.query(Renter).filter(Renter.id == id).first()

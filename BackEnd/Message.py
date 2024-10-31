@@ -89,3 +89,11 @@ def getAllMessage():
     session = Session()
 
     return session.query(Message).all()
+
+def getMessageByID(id):
+    engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    return session.query(Message).filter(Message.id == id).first()

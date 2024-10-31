@@ -96,3 +96,11 @@ def getAllTransaction():
     session = Session()
 
     return session.query(Transaction).all()
+
+def getTransactionByID(id):
+    engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    return session.query(Transaction).filter(Transaction.id == id).first()

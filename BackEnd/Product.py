@@ -103,3 +103,11 @@ def getAllProduct():
     session = Session()
 
     return session.query(Product).all()
+
+def getProductByID(id):
+    engine = sa.create_engine(f"access+pyodbc:///?odbc_connect={connection_string}")
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    return session.query(Product).filter(Product.id == id).first()
