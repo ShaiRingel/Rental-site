@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 _base = declarative_base()
 connection_string = (
     r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};"
-    r"DBQ=C:\Users\shair\OneDrive\שולחן העבודה\Program\Rental-site\RentalServicesproject.accdb;"
+    r"DBQ=C:\Users\shair\Rental-site\RentalServicesproject.accdb;"
 )
 
 class Transaction(_base):

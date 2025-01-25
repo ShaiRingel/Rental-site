@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-import message as msg
+import Message as msg
 
 class APIMessage(BaseModel):
     id: int

@@ -1,11 +1,11 @@
-from user import User
+from User import User
 import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 connection_string = (
     r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};"
-    r"DBQ=C:\Users\shair\OneDrive\שולחן העבודה\Program\Rental-site\RentalServicesproject.accdb;"
+    r"DBQ=C:\Users\shair\Rental-site\RentalServicesproject.accdb;"
 )
 
 class Renter(User):

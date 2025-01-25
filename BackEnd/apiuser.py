@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-import user
+import User
 
 class APIUser(BaseModel):
     id: int
@@ -10,9 +10,9 @@ class APIUser(BaseModel):
 
 
 def getUserByID(id):
-    filtered_user = user.getUserByID(id)
+    filtered_user = User.getUserByID(id)
     return APIUser(id=id, username=filtered_user.username, password=filtered_user.password,
                    group_number=filtered_user.group_number, unique_code=filtered_user.unique_code)
 
 def createNewUser(username, password, group_number, unique_code):
-    user.createNewUser(username, password, group_number, unique_code)
+    User.createNewUser(username, password, group_number, unique_code)

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-import renter
+import Renter
 
 class APIRenter(BaseModel):
     id: int
@@ -11,9 +11,9 @@ class APIRenter(BaseModel):
     
 
 def getRenterByID(id):
-    filtered_renter = renter.getRenterByID(id)
+    filtered_renter = Renter.getRenterByID(id)
     return APIRenter(id=id, username=filtered_renter.username, password=filtered_renter.password,
                    group_number=filtered_renter.group_number, unique_code=filtered_renter.unique_code)
 
 def createNewRenter(username, password, group_number, unique_code, productID):
-    renter.createNewRenter(username, password, group_number, unique_code, productID)
+    Renter.createNewRenter(username, password, group_number, unique_code, productID)
