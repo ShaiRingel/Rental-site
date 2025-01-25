@@ -40,7 +40,10 @@ const ProductListPage: React.FC = () => {
       <div className="row">
         {mockProducts.map((product) => (
           <div key={product.id} className="col-md-4 mb-4">
-            <ProductCard product={product} onButtonClick={handleAddToCart} />
+            <ProductCard
+              product={product}
+              onButtonClick={() => handleAddToCart}
+            />
           </div>
         ))}
       </div>

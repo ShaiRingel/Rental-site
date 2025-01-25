@@ -1,4 +1,4 @@
-import { Route, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import Button from "../components/Button";
 import Dropdown from "../components/Dropdown";
 import NavBar from "../components/NavBar";
@@ -34,7 +34,7 @@ const ItemsOnSalePage = () => {
       </NavBar>
       {types.map((type) => (
         <ul>
-          <Button>{type}</Button>
+          <Button onClick={() => null}>{type}</Button>
         </ul>
       ))}
       <center>

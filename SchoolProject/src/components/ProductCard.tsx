@@ -28,11 +28,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="card-body">
           <h5 className="card-title">{product.name}</h5>
           <p className="card-text">${product.price.toFixed(2)}</p>
-          <button
-            className="btn btn-primary"
-            onClick={() => onButtonClick(product.id)}
-          >
-            Add to Cart
+          <button className="btn btn-primary" onClick={() => onButtonClick()}>
+            Learn More
           </button>
         </div>
       </center>
